@@ -4,8 +4,8 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "start": "rmdir /S /Q dist && parcel",
-    "build": "rmdir /S /Q dist && parcel build"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "keywords": [],
   "author": "",
