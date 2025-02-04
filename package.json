@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --public-url ./projet_alpinejs"
+    "build": "parcel build --public-url"
   },
   "keywords": [],
   "author": "",
