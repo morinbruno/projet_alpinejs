@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script defer src="../node_modules/alpinejs/dist/cdn.min.js"></script>
+    <script defer src="js/app.js" type="module"></script>
+    <link rel="stylesheet" href="css/app.less">
+</head>
+
+<body>
+    <div x-data="{ users: [], user: {}, isModify: false }">
+        <form @submit.prevent="
+                        if(isModify) 
+                        {
+                            users[user.index].firstname = user.firstname;
+                            users[user.index].lastname = user.lastname; 
+                            isModify=false
+                        } else {
+                            users.push(user)
+                        }; 
+                        user={}">
+            <input type="text" placeholder="Prénom" x-model="user.firstname">
+            <input type="text" placeholder="Nom" x-model="user.lastname">
+            <button type="submit" x-text="isModify ? 'Modifier' : 'Ajouter'"></button>
+        </form>
+        <table style="border-collapse: collapse; border: 1px solid black;">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="(u, index) in users" :key="index">
+                    <tr scope="row">
+                        <td x-text="u.lastname"></td>
+                        <td x-text="u.firstname"></td>
+                        <td>
+                            <button type="button" x-on:click="user.firstname = u.firstname; 
+                                                              user.lastname = u.lastname; 
+                                                              user.index = index; 
+                                                              isModify = true">Modifier</button>
+                            <button type="button" x-on:click="users.splice(index, 1)">Supprimer</button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <img src="img/rezero.jpg" alt="">
+</body>
+
+</html>

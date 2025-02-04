@@ -1,0 +1,21 @@
+{
+  "name": "projet_alpinejs",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "type": "module",
+  "scripts": {
+    "start": "rmdir /S /Q dist && parcel",
+    "build": "rmdir /S /Q dist && parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "alpinejs": "^3.14.8"
+  },
+  "devDependencies": {
+    "@parcel/transformer-less": "^2.13.3",
+    "parcel": "^2.13.3"
+  }
+}
